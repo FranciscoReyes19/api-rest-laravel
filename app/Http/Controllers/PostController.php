@@ -45,8 +45,7 @@ class PostController extends Controller {
     public function store(Request $request) {
         //RECOJER LOS DATOS POR POST
         $json = $request->input('json', null);
-        $params_array = json_decode($json, true);
-
+        $params_array = json_decode($json, true);        
         if (!empty($params_array)) {
             //CONSEGUIR USUARIO IDENTIFICADO
             $user = $this->getIdentity($request);
