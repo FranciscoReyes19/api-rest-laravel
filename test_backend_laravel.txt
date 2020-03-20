@@ -1,0 +1,5 @@
+url´S
+GLOBAL : http://localhost:8080/master-fullstack/api-rest-laravel/public/
+
+Registrar nuevo usuario:
+http://localhost:8080/master-fullstack/api-rest-laravel/public/api/register?json={"name":"Antonio","surname":"Reyes","email":"antonio.reyesfrt@outlook.com","password":"ad.12345"}

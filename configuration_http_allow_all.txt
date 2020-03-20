@@ -1,0 +1,12 @@
+
+<VirtualHost *:80>   
+    DocumentRoot "C:\xampp\htdocs\master-fullstack\api-rest-laravel\public"
+    ServerName api-rest-laravel.com.devel
+    ServerAlias www.api-rest-laravel.com.devel
+    <Directory "C:\xampp\htdocs\master-fullstack\api-rest-laravel\public">
+        Options Indexes FollowSymLinks     
+        AllowOverride All
+        Order Deny,Allow
+        Allow from all     
+    </Directory> 
+</VirtualHost>
