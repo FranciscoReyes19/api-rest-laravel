@@ -24,7 +24,9 @@ class PostController extends Controller {
     }
 
     public function show($id) {
-        $post = Post::find($id)->load('category');
+        //load es un tipo join
+        $post = Post::find($id)->load('category')
+                                ->load('user');
 
         if (is_object($post)) {
             $data = array(
@@ -125,6 +127,8 @@ class PostController extends Controller {
 
                 unset($params_array['id']);
                 unset($params_array['user_id']);
+                unset($params_array['category']);
+                unset($params_array['user']);
                 //unset($params_array['category_id']);
                 unset($params_array['created_at']);
 
@@ -156,7 +160,8 @@ class PostController extends Controller {
             $data = array(
                 'code' => 404,
                 'status' => 'error',
-                'message' => 'No has enviado ningun post para actualizar'
+                'message' => 'No has enviado ningun post para actualizar',
+                'json' => $json
             );
         }
         //DEVOLVER EL RESULTADO
