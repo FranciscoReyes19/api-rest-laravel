@@ -209,13 +209,28 @@ class PostController extends Controller {
 
     public function upload(Request $request) {
         //RECOJER LA IMAGEN DE LA PETICION
+        $image1 = $request->file('file0');
+        /* TESTING MULTI-UPLOAD
+        $image2 = $request->file('file1');
+        $image3 = $request->file('file2');
+        $data = array(
+            'code' => 200,
+            'status' => 'error',
+            'Testing1' => $image1,
+            'Testing2' => $image2,
+            'Testing3' => $image3
+            );
+        return response()->json($data, $data['code']);
+        die();
+        */
+
         $image = $request->file('file0');
         
         //VALIDAR LA IMAGEN
         $validate = \Validator::make($request->all(),[
             'file0' => 'required|image|mimes:jpg,jpeg,png,gif'
         ]);
-
+        
         if( !$image ){
             if( $validate->fails()){
                 $data = array(
